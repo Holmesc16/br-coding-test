@@ -18,14 +18,14 @@ export const StyledWrapper = styled.div`
     flex-basis: 100%;
   }
   
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
     .column {
       flex: 2;
       height:100%;
     }
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 768px) {
     .column {
       flex: 1;
       height:100%;

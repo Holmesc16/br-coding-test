@@ -1,23 +1,32 @@
-import React, { Component } from 'react'
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+// index.jsx
 
-export class MapContainer extends Component {
+// Import React and React DOM
+import * as React from 'react'
+import { render } from 'react-dom'
+
+// Import Google Map component
+import GoogleMapComponentWithMarker from './GoogleMapWithMarker'
+
+// Some default styles
+const styles = {
+  width: '100%',
+  height: '536px'
+}
+
+// Wrapper with Google Map component
+class MapWrapper extends React.PureComponent {
   render() {
     return (
-      <Map google={this.props.google} zoom={14}>
-
-        <Marker onClick={this.onMarkerClick}
-                name={'Current location'} />
-        <InfoWindow onClose={this.onInfoWindowClose}>
-            <div>
-              <h1>{this.state.selectedPlace.name}</h1>
-            </div>
-        </InfoWindow>
-      </Map>
-    );
+      <div style={styles}>
+        <GoogleMapComponentWithMarker
+          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyByEbxFqt93GqvIhluV5ulVBpH0xEBRhRQ"
+          loadingElement={<div style={{ height: `100%` }} />}
+          containerElement={<div style={{ height: `100%` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+        />
+      </div>
+    )
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: ('AIzaSyByEbxFqt93GqvIhluV5ulVBpH0xEBRhRQ')
-})(MapContainer)
+export default MapWrapper

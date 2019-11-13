@@ -17,7 +17,7 @@ export const StyledHeader = styled.nav`
 `;
 export const StyledTitle = styled.h1`
   font-weight: bold;
-  font-size:${() => window.innerWidth > 800 ? '30px' : '24px'};;
+  font-size:${() => window.innerWidth > 767 ? '30px' : '24px'};;
 `;
 export const StyledIcon = styled.img`
   src: ${props => props.src};

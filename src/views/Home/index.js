@@ -4,6 +4,7 @@ import Footer from "../../components/Footer";
 import RestaurantCard from "../../components/RestaurantCard";
 import { useServiceFetch } from "../../utils";
 import { StyledWrapper } from "./styles";
+import Map from '../Map'
 
 const url = "https://s3.amazonaws.com/br-codingexams/restaurants.json";
 
@@ -33,6 +34,7 @@ const Home = props => {
                         src={restaurant.backgroundImageURL}
                         name={restaurant.name}
                         category={restaurant.category}
+                        key={i}
                       />
                     );
                   })}
@@ -47,6 +49,7 @@ const Home = props => {
                         src={restaurant.backgroundImageURL}
                         name={restaurant.name}
                         category={restaurant.category}
+                        key={i}
                       />
                     );
                   })}
@@ -76,6 +79,7 @@ const Home = props => {
                               src={restaurant.backgroundImageURL}
                               name={restaurant.name}
                               category={restaurant.category}
+                              key={i}
                             />
                           );
                         })}
@@ -97,7 +101,8 @@ const Home = props => {
   return (
       <div>
           <Header/>
-        {setLayout()}
+          <Map/>
+        {/* {setLayout()} */}
           <Footer/>
       </div>
   )

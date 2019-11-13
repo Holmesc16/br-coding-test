@@ -33,13 +33,13 @@ export const StyledContainer = styled.div`
     .text.restaurant-name {
         margin: 0 auto;
         z-index:1001;
-        font-size:${() => window.innerWidth > 800 ? '24px' : '16px'};
+        font-size:${() => window.innerWidth > 767 ? '24px' : '16px'};
     }
     .restaurant-cat {
         margin-bottom:10px;
         margin-top:4px;
         z-index:1001;
-        font-size:${() => window.innerWidth > 800 ? '18px' : '12px'};
+        font-size:${() => window.innerWidth > 767 ? '18px' : '12px'};
     }
     
 `
