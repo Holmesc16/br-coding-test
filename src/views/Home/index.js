@@ -1,25 +1,12 @@
 import React, { useState } from 'react'
-import { apiURL, useFetch } from '../../utils'
-
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 const Home = props => {
-    const { restaurants, loading } = useFetch(apiURL)
-    const [state, setState] = useState({})
-    
     return (
        <div>
-        {loading ? 
-        <h1>Loading</h1>
-       : <div>
-           <ul>
-               <li>{restaurants}</li>
-           {/* {restaurants.map(restaurant => {
-               return (
-                <li>{restaurant}</li>
-               )
-           })} */}
-           </ul>
-         </div>
-         }
+           <Header/>
+            <div>Hello!</div>
+           <Footer/>
        </div>
     )
 }
