@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GlobalStyle } from './ui/AppStyles'
 import Home from './views/Home';
+
 function App() {
+
   return (
     <div className="App">
       <GlobalStyle/>
