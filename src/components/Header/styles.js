@@ -22,7 +22,7 @@ export const StyledTitle = styled.h1`
 `;
 export const StyledIcon = styled.img`
   src: ${props => props.src};
-  width: ${props => props.size || "20px"};
+  width: ${props => props.size === true || typeof(props.size) === 'string' ? props.type === 'map' ? '40px' : '15px' : "0px"};
   margin: 20px;
   vertical-align:bottom;
  ${_opacity}

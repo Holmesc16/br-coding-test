@@ -4,14 +4,21 @@ import Footer from "../../components/Footer";
 import RestaurantCard from "../../components/RestaurantCard";
 import { useServiceFetch } from "../../utils";
 import { StyledWrapper } from "./styles";
-import Map from '../../components/Map'
+import Detail from '../Detail'
 
 const url = "https://s3.amazonaws.com/br-codingexams/restaurants.json";
 
 const Home = props => {
-  const { restaurants, loading } = useServiceFetch(url);
-  let col1 = [],
-    col2 = [];
+  const { restaurants } = useServiceFetch(url);
+  const [state, setState] = useState({
+    showDetailsView: false,
+    restaurant: {},
+    showBackButton: false
+  })
+  console.log('state', state)
+
+  let col1 = []
+  let col2 = []
 
   restaurants !== null
     ? restaurants.map((restaurant, i) =>
@@ -23,17 +30,24 @@ const Home = props => {
     return (
       <div>
         {restaurants !== null ? (
-          <StyledWrapper>
+          <div>
+          <StyledWrapper style={{'display' : state.showDetailsView === true ? 'none' : 'contents'}}>
             <div className="row">
               <div className="column">
                 <div className="first-column">
-                  {col1.map((restaurant, i) => {
+                  {col1.map((res, i) => {
                     return (
                       <RestaurantCard
+                        onClick={() => {
+                          setState({showDetailsView:true, restaurant:res, showBackButton: !state.showBackButton})
+                          console.log('state', state)
+                          }
+                        }
                         display="col1"
-                        src={restaurant.backgroundImageURL}
-                        name={restaurant.name}
-                        category={restaurant.category}
+                        detail={state.showDetailsView}
+                        src={res.backgroundImageURL}
+                        name={res.name}
+                        category={res.category}
                         key={i}
                       />
                     );
@@ -42,13 +56,19 @@ const Home = props => {
               </div>
               <div className="column">
                 <div className="second-column">
-                  {col2.map((restaurant, i) => {
+                  {col2.map((res, i) => {
                     return (
                       <RestaurantCard
+                        onClick={() => {
+                          setState({showDetailsView:true, restaurant:res, showBackButton: !state.showBackButton})
+                          console.log('state', state)
+                          }
+                        }
                         display="col2"
-                        src={restaurant.backgroundImageURL}
-                        name={restaurant.name}
-                        category={restaurant.category}
+                        detail={state.showDetailsView}
+                        src={res.backgroundImageURL}
+                        name={res.name}
+                        category={res.category}
                         key={i}
                       />
                     );
@@ -58,6 +78,8 @@ const Home = props => {
             </div>
             )
           </StyledWrapper>
+          <Detail show={state.showDetailsView} restaurant={state.restaurant}/>
+          </div>
         ) : (
           ""
         )}
@@ -69,24 +91,33 @@ const Home = props => {
         return (
             <div>
             {restaurants !== null ? (
-                <StyledWrapper>
+              <div>
+                <StyledWrapper style={{'width' : state.showDetailsView === true ? '0px' : 'inherit'}}>
                   <div className="row">
                     <div className="column">
                       <div className="single-column">
-                        {restaurants.map((restaurant, i) => {
+                        {restaurants.map((res, i) => {
                           return (
                             <RestaurantCard
-                              src={restaurant.backgroundImageURL}
-                              name={restaurant.name}
-                              category={restaurant.category}
+                              onClick={() => {
+                                setState({showDetailsView:true, restaurant:res, showBackButton: !state.showBackButton})
+                                console.log('state', state)
+                                }
+                              }
+                              detail={state.showDetailsView}
+                              src={res.backgroundImageURL}
+                              name={res.name}
+                              category={res.category}
                               key={i}
-                            />
+                              />
                           );
                         })}
                       </div>
                     </div>
                 </div>
                 </StyledWrapper>
+                <Detail show={state.showDetailsView} restaurant={state.restaurant}/>
+                </div>
                         ) : ''
                 }
             </div>
@@ -100,10 +131,10 @@ const Home = props => {
     }
   return (
       <div>
-          <Header showBackButton={false}/>
+          <Header show={state.showBackButton} onClick={() => setState({showDetailsView:false, restaurant:state.restaurant, showBackButton: !state.showBackButton})}/>
           {/* <Map/> */}
         {setLayout()}
-          <Footer/>
+          {/* <Footer/> */}
       </div>
   )
 };

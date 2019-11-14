@@ -6,7 +6,7 @@ import {
   Marker
 } from 'react-google-maps'
 import { StyledMapPin } from '../../utils'
-// Import custom styles to customize the style of Google Map
+
 const styles = require('./GoogleMapStyles.json')
 
 const scopedDefaultCenter = {
@@ -17,8 +17,10 @@ const scopedDefaultCenter = {
 const GoogleMapComponentWithMarker = withScriptjs(
   withGoogleMap(props => (
     <GoogleMap
-      defaultZoom={13}
-      defaultCenter={scopedDefaultCenter}
+      defaultZoom={15}
+      defaultCenter={
+        props.lat !== undefined && props.lng !== undefined ?  {lat: props.lat, lng: props.lng } : scopedDefaultCenter
+        }
       defaultOptions={{
         disableDefaultUI: true,
         draggable: true, 
@@ -29,13 +31,11 @@ const GoogleMapComponentWithMarker = withScriptjs(
       }}
     >
       <Marker
-        icon={{
-          url: StyledMapPin // This may not work in <=IE11
-        }}
+        label={props.restaurant ? props.restaurant.name : ''}
         position={
          props.lat !== undefined && props.lng !== undefined ?  {lat: props.lat, lng: props.lng } : scopedDefaultCenter
-         } //pass props here
-      />
+         }
+      ></Marker>
     </GoogleMap>
   ))
 )

@@ -9,7 +9,7 @@ const size = {
     laptopLg: '1440px',
     desktop: '2560px'
   }
-  export const _opacity = `opacity:65%;
+  export const _opacity = `opacity:85%;
   transition: opacity .3s ease-out;
     -moz-transition: opacity .3s ease-out;
     -webkit-transition: opacity .3s ease-out;

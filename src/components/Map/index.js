@@ -9,8 +9,12 @@ import GoogleMapComponentWithMarker from './GoogleMapWithMarker'
 
 // Some default styles
 const styles = {
-  width: '100%',
-  height: '536px'
+  width: '50%',
+  height: '100%',
+  position: 'absolute',
+  bottom: '0',
+  right: '0',
+  boxShadow: '3px 3px 20px #000'
 }
 
 // Wrapper with Google Map component
@@ -23,6 +27,8 @@ class MapWrapper extends React.PureComponent {
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div style={{ height: `100%` }} />}
           mapElement={<div style={{ height: `100%` }} />}
+          lat = {this.props.lat}
+          lng = {this.props.lng}
         />
       </div>
     )
