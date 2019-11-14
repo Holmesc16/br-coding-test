@@ -3,7 +3,7 @@ import { StyledContainer } from './styles'
 
 const RestaurantCard = props => {
     return (
-    <StyledContainer>
+    <StyledContainer onClick="(() => toggleDetailsView(props.restaurant)">
          <div className="text restaurant-info">
             <h1 className="text restaurant-name">{props.name}</h1>
             <h4 className="text restaurant-cat">{props.category}</h4>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {_grow, _opacity} from '../../ui/AppStyles'
 
 const textColor = "#ffffff";
 const primaryColor = "#43E895";
@@ -17,10 +18,13 @@ export const StyledHeader = styled.nav`
 `;
 export const StyledTitle = styled.h1`
   font-weight: bold;
-  font-size:${() => window.innerWidth > 767 ? '30px' : '24px'};;
+  font-size:${() => window.innerWidth > 767 ? '21px' : '15px'};;
 `;
 export const StyledIcon = styled.img`
   src: ${props => props.src};
   width: ${props => props.size || "20px"};
   margin: 20px;
+  vertical-align:bottom;
+ ${_opacity}
+ ${_grow}
 `;

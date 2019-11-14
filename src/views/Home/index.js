@@ -4,7 +4,7 @@ import Footer from "../../components/Footer";
 import RestaurantCard from "../../components/RestaurantCard";
 import { useServiceFetch } from "../../utils";
 import { StyledWrapper } from "./styles";
-import Map from '../Map'
+import Map from '../../components/Map'
 
 const url = "https://s3.amazonaws.com/br-codingexams/restaurants.json";
 
@@ -100,9 +100,9 @@ const Home = props => {
     }
   return (
       <div>
-          <Header/>
-          <Map/>
-        {/* {setLayout()} */}
+          <Header showBackButton={false}/>
+          {/* <Map/> */}
+        {setLayout()}
           <Footer/>
       </div>
   )

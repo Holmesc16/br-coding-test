@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {_opacity, _grow} from '../../ui/AppStyles'
 
 const footerBackgroundColor = "#2A2A2A";
 const footerTextColor = "#FFFFFF";
@@ -19,6 +20,8 @@ export const StyledIconContainer = styled.div`
 export const StyledFooterSection = styled.div`
   color: ${footerTextColor};
   margin: 0 15%;
+  cursor:pointer;
+  ${_opacity}
 `;
 export const StyledFooterIcon = styled.img`
   width: 25px;
@@ -26,6 +29,8 @@ export const StyledFooterIcon = styled.img`
   margin: 7px auto;
   display: block;
   src: ${props => props.src};
+  ${_grow}
+  
 `;
 export const StyledFooterLabel = styled.div`
   text-align: center;

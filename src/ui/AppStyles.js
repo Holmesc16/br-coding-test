@@ -9,7 +9,19 @@ const size = {
     laptopLg: '1440px',
     desktop: '2560px'
   }
-
+  export const _opacity = `opacity:65%;
+  transition: opacity .3s ease-out;
+    -moz-transition: opacity .3s ease-out;
+    -webkit-transition: opacity .3s ease-out;
+    -o-transition: opacity .3s ease-out;
+    
+    &:hover {
+      opacity:100%;
+    }`
+export const _grow = `
+    transition: all .2s ease-in-out;
+    &:hover { transform: scale(1.1);`
+  
 export const GlobalStyle = createGlobalStyle`
 @font-face {
     font-family: 'Avenir Next';

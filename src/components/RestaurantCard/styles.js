@@ -9,7 +9,8 @@ export const StyledContainer = styled.div`
     
     .img {
         width: 100%;
-        margin-top: -1px;
+        margin-top: -4px;
+        cursor:pointer;
     }
     .restaurant-image {
         src: ${props => props.src}
@@ -22,7 +23,7 @@ export const StyledContainer = styled.div`
     left: 0;
     top: 0px;
     width: 100%;
-    height: 99%%;
+    height: 99%;
     }
     .text.restaurant-info {
         position: absolute;
