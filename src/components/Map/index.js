@@ -1,13 +1,6 @@
-// index.jsx
-
-// Import React and React DOM
 import * as React from 'react'
-import { render } from 'react-dom'
-
-// Import Google Map component
 import GoogleMapComponentWithMarker from './GoogleMapWithMarker'
 
-// Some default styles
 const styles = {
   width: '50%',
   height: '100%',
@@ -17,7 +10,6 @@ const styles = {
   boxShadow: '3px 3px 20px #000'
 }
 
-// Wrapper with Google Map component
 class MapWrapper extends React.PureComponent {
   render() {
     return (

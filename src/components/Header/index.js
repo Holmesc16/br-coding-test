@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { StyledHeader, StyledIcon, StyledTitle } from "./styles";
 
 const Header = props => {

@@ -10,6 +10,7 @@ export const StyledFooter = styled.footer`
     bottom: 0;
     width:100%;
     z-index: 9999;
+    display: ${props => props.size ? 'contents' : 'hidden'}
         }
 `;
 export const StyledIconContainer = styled.div`

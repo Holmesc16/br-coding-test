@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { GlobalStyle } from './ui/AppStyles'
 import Home from './views/Home';
 

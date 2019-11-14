@@ -5,21 +5,20 @@ import {
   GoogleMap,
   Marker
 } from 'react-google-maps'
-import { StyledMapPin } from '../../utils'
 
 const styles = require('./GoogleMapStyles.json')
 
 const scopedDefaultCenter = {
-  lat: 32.95,
-  lng: -96.82
+  lat: 32.99,
+  lng: -96.83 //pappadeaux
 }
 // Google Map component
 const GoogleMapComponentWithMarker = withScriptjs(
   withGoogleMap(props => (
     <GoogleMap
-      defaultZoom={15}
+      defaultZoom={14}
       defaultCenter={
-        props.lat !== undefined && props.lng !== undefined ?  {lat: props.lat, lng: props.lng } : scopedDefaultCenter
+        props.lat && props.lng ?  {lat: props.lat, lng: props.lng } : scopedDefaultCenter
         }
       defaultOptions={{
         disableDefaultUI: true,
@@ -31,9 +30,8 @@ const GoogleMapComponentWithMarker = withScriptjs(
       }}
     >
       <Marker
-        label={props.restaurant ? props.restaurant.name : ''}
         position={
-         props.lat !== undefined && props.lng !== undefined ?  {lat: props.lat, lng: props.lng } : scopedDefaultCenter
+          props.lat && props.lng ?  {lat: props.lat, lng: props.lng } : scopedDefaultCenter
          }
       ></Marker>
     </GoogleMap>

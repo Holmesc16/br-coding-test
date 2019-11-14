@@ -131,10 +131,12 @@ const Home = props => {
     }
   return (
       <div>
-          <Header show={state.showBackButton} onClick={() => setState({showDetailsView:false, restaurant:state.restaurant, showBackButton: !state.showBackButton})}/>
-          {/* <Map/> */}
+          <Header show={state.showBackButton}
+           onClick={() => setState({showDetailsView:false, restaurant:state.restaurant, showBackButton: !state.showBackButton
+           })}
+           />
         {setLayout()}
-          {/* <Footer/> */}
+          <Footer show={!state.showBackButton}/>
       </div>
   )
 };

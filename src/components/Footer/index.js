@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   StyledFooter,
-  StyledIcon,
-  StyledLabel,
   StyledIconContainer,
   StyledFooterSection,
   StyledFooterIcon,
@@ -10,7 +8,7 @@ import {
 } from "./styles";
 const Footer = props => {
   return (
-    <StyledFooter>
+    <StyledFooter size={props.show}>
       <StyledIconContainer>
         <StyledFooterSection>
           <StyledFooterIcon src="assets\cuts\tab_lunch@2x.png" />
