@@ -23,7 +23,7 @@ export const StyledContainer = styled.div`
     left: 0;
     top: 0px;
     width: 100%;
-    height: ${props => props.width >= 768 ? '98%' : '99%'};
+    height: 99.9%;
     
     }
     .text.restaurant-info {
