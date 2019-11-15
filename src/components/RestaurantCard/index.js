@@ -9,7 +9,7 @@ const RestaurantCard = props => {
             <p style={{'display': props.detail === true ? 'none' : 'inherit'}} width={props.width} className="text restaurant-cat">{props.category}</p>
         </div>
         <img className="img restaurant-image" src={props.src} alt="restaurant"/>
-        <img className="img gradient" src="assets\cuts\cellGradientBackground@2x.png" alt="gradient"/>
+        <img className="img gradient" width={props.width} src="assets\cuts\cellGradientBackground@2x.png" alt="gradient"/>
     </StyledContainer>
     )
 }

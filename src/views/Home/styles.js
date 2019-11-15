@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 export const StyledWrapper = styled.div`
     min-height: 100%;
-    padding-bottom:79px;
-
+  
   .row {
     display: flex;
     flex-direction: row;
@@ -17,6 +16,7 @@ export const StyledWrapper = styled.div`
     flex-direction: column;
     flex-basis: 100%;
   }
+  
   
 @media screen and (max-width: 768px) {
     .column {

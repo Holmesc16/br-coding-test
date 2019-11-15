@@ -1,14 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 
-const size = {
-    mobileSmall: '320px',
-    mobileMed: '375px',
-    mobileLg: '425px',
-    tablet: '768px',
-    laptop: '1024px',
-    laptopLg: '1440px',
-    desktop: '2560px'
-  }
   export const _opacity = `opacity:85%;
   transition: opacity .3s ease-out;
     -moz-transition: opacity .3s ease-out;
@@ -45,13 +36,3 @@ body {
  font-family: 'Avenir Next', Segoe UI, Helvetica, Arial, Sans-serif;  
 }
 `
-export const device = {
-mobileS: `(min-width: ${size.mobileSmall})`,
-mobileM: `(min-width: ${size.mobileMed})`,
-mobileL: `(min-width: ${size.mobileLg})`,
-tablet: `(min-width: ${size.tablet})`,
-laptop: `(min-width: ${size.laptop})`,
-laptopL: `(min-width: ${size.laptopLg})`,
-desktop: `(min-width: ${size.desktop})`,
-desktopL: `(min-width: ${size.desktop})`
-};

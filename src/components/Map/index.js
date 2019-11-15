@@ -22,7 +22,7 @@ const styles = {
 class MapWrapper extends React.PureComponent {
   render() {
     return (
-      <div style={this.props.width > 767 ? styles.large : styles.small}>
+      <div style={this.props.width >= 768 ? styles.large :  styles.small} /* this.props.width > 767 ? styles.large :  */>
         <GoogleMapComponentWithMarker
           googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyByEbxFqt93GqvIhluV5ulVBpH0xEBRhRQ"
           loadingElement={<div style={{ height: `100%` }} />}

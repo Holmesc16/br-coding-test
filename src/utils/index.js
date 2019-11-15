@@ -28,6 +28,5 @@ export const useServiceFetch = url => {
         window.removeEventListener('resize', handleResize);
       };
     });
-    console.log('width', width)
     return width;
   }

@@ -42,7 +42,6 @@ const Home = props => {
                         width={width}
                         onClick={() => {
                           setState({showDetailsView:true, restaurant:res, showBackButton: !state.showBackButton})
-                          console.log('state', state)
                           }
                         }
                         display="col1"
@@ -64,7 +63,6 @@ const Home = props => {
                         width={width}
                         onClick={() => {
                           setState({showDetailsView:true, restaurant:res, showBackButton: !state.showBackButton})
-                          console.log('state', state)
                           }
                         }
                         display="col2"
@@ -80,7 +78,7 @@ const Home = props => {
               </div>
             </div>
           </StyledWrapper>
-          <Detail show={state.showDetailsView} restaurant={state.restaurant}/>
+          <Detail show={state.showDetailsView} restaurant={state.restaurant} width={width}/>
           </div>
         ) : (
           ""
@@ -104,7 +102,6 @@ const Home = props => {
                               width={width}
                               onClick={() => {
                                 setState({showDetailsView:true, restaurant:res, showBackButton: !state.showBackButton})
-                                console.log('state', state)
                                 }
                               }
                               detail={state.showDetailsView}
@@ -126,7 +123,7 @@ const Home = props => {
             </div>
         )}
    const setLayout = () => {
-        if (width <= 769) {
+        if (width < 768) {
             return singleColumnLayout()
         } else {
             return twoColumnLayout()   
@@ -137,7 +134,9 @@ const Home = props => {
           <Header 
            show={state.showBackButton}
            width={width}
-           onClick={() => setState({showDetailsView:false, restaurant:state.restaurant, showBackButton: !state.showBackButton
+           onClickBack={() => setState({showDetailsView:false, restaurant:state.restaurant, showBackButton: !state.showBackButton
+           })}
+           onClickMap={() => setState({showDetailsView:false, restaurant:restaurants, showBackButton: !state.showBackButton
            })}
            />
         {setLayout()}

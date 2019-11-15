@@ -9,7 +9,7 @@ const Header = props => {
           size={props.show}
           src="assets/cuts/ic_webBack@2x.png"
           type="back"
-          onClick={props.onClick}
+          onClick={props.onClickBack}
         />
       </div>
       <div>
@@ -18,10 +18,11 @@ const Header = props => {
         </StyledTitle>
       </div>
       <div>
-        <StyledIcon 
-        src="assets/cuts/icon_map@2x.png"
-        size="40px" 
-        type="map"/>
+        <StyledIcon
+          src="assets/cuts/icon_map@2x.png"
+          size="40px" 
+          type="map"
+        />
       </div>
     </StyledHeader>
   );
