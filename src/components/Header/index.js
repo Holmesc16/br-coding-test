@@ -13,7 +13,7 @@ const Header = props => {
         />
       </div>
       <div>
-        <StyledTitle size={window.innerWidth > 924 ? "20px" : "15px"}>
+        <StyledTitle width={props.width} size={props.width > 924 ? "20px" : "15px"}>
           Lunch Tyme
         </StyledTitle>
       </div>

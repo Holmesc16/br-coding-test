@@ -33,7 +33,7 @@ const largeLayout = props => {
 const smallLayout = props => {
     return (
         <StyledWrapper show={props.show === true ? 'initial' : 'none'}>
-            <Map lat={props.restaurant.location ? props.restaurant.location.lat : 32.95} lng={props.restaurant.location ? props.restaurant.location.lng : -96.82}/>
+            <Map width={props.width} lat={props.restaurant.location ? props.restaurant.location.lat : 32.95} lng={props.restaurant.location ? props.restaurant.location.lng : -96.82}/>
             <StyledLabel show={props.show === true ? 'initial' : 'none'} top='324px' width='100%' height='68px'>
                         <p fontSize='16px' fontWeight='bold'>{props.restaurant.name}</p>
                         <p fontSize='12px' fontWeight='normal'>{props.restaurant.category}</p>
@@ -53,7 +53,7 @@ const smallLayout = props => {
 const Detail = props => {
         return (
             <div>
-                {window.innerWidth > 767 ?
+                {props.widths > 767 ?
                  largeLayout(props) : smallLayout(props)}
             </div>
         )

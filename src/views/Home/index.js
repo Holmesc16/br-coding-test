@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import RestaurantCard from "../../components/RestaurantCard";
-import { useServiceFetch } from "../../utils";
+import { useServiceFetch, useWindowWidth } from "../../utils";
 import { StyledWrapper } from "./styles";
 import Detail from '../Detail'
 
@@ -10,6 +10,8 @@ const url = "https://s3.amazonaws.com/br-codingexams/restaurants.json";
 
 const Home = props => {
   const { restaurants } = useServiceFetch(url);
+  const width = useWindowWidth()
+
   const [state, setState] = useState({
     showDetailsView: false,
     restaurant: {},
@@ -37,6 +39,7 @@ const Home = props => {
                   {col1.map((res, i) => {
                     return (
                       <RestaurantCard
+                        width={width}
                         onClick={() => {
                           setState({showDetailsView:true, restaurant:res, showBackButton: !state.showBackButton})
                           console.log('state', state)
@@ -58,6 +61,7 @@ const Home = props => {
                   {col2.map((res, i) => {
                     return (
                       <RestaurantCard
+                        width={width}
                         onClick={() => {
                           setState({showDetailsView:true, restaurant:res, showBackButton: !state.showBackButton})
                           console.log('state', state)
@@ -97,6 +101,7 @@ const Home = props => {
                         {restaurants.map((res, i) => {
                           return (
                             <RestaurantCard
+                              width={width}
                               onClick={() => {
                                 setState({showDetailsView:true, restaurant:res, showBackButton: !state.showBackButton})
                                 console.log('state', state)
@@ -114,14 +119,14 @@ const Home = props => {
                     </div>
                 </div>
                 </StyledWrapper>
-                <Detail show={state.showDetailsView} restaurant={state.restaurant}/>
+                <Detail show={state.showDetailsView} restaurant={state.restaurant} width={width}/>
                 </div>
                         ) : ''
                 }
             </div>
         )}
    const setLayout = () => {
-        if (window.innerWidth <= 769) {
+        if (width <= 769) {
             return singleColumnLayout()
         } else {
             return twoColumnLayout()   
@@ -129,7 +134,9 @@ const Home = props => {
     }
   return (
       <div>
-          <Header show={state.showBackButton}
+          <Header 
+           show={state.showBackButton}
+           width={width}
            onClick={() => setState({showDetailsView:false, restaurant:state.restaurant, showBackButton: !state.showBackButton
            })}
            />
