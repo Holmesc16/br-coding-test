@@ -3,44 +3,62 @@ import styled from 'styled-components'
 export const StyledWrapper = styled.div`
 display: ${props => props.show}
 `
-
 export const StyledLabel = styled.div`
 background: #34B379;
 position: absolute;
-top: 80px;
-width: 50%;
+top: ${props => props.top};
+width: ${props => props.width};
 z-index: 1;
 color: white;
-height: 120px;
+height: ${props => props.height};
 vertical-align: middle;
 text-align: left;
-
-    h1, p {
-     margin-left:18px;
-     margin-bottom:4px;   
+display: ${props => props.show}
+    div {
+        &:first-child {
+            margin-top:22px;
+            font-size:larger;
+        }
     }
-
     p {
-        margin-top:2px;
-        font-size:20px;
+        margin-left: 12px;
+        margin-bottom: 6px;
+        margin-top: 6px;
+        font-size:${props => props.fontSize};
+
+        &:first-child {
+            font-weight:bold;
+            margin-top: 10px;
+        }
     }
+    
 `
 
 export const StyledDetailSection = styled.div`
 position: absolute;
-top: 200px;
-width: 50%;
+top: ${props => props.top}; //200px;
+width: ${props => props.width}; //50%;
 height: fit-content;
-
+display: ${props => props.show};
+margin-top: ${props => props.marginTop || '16px'}
     .restaurant-info {
-        margin-left:22px;
+        margin-left:12px;
     }
 
     .address {
+        margin-top:16px;
+    }
+
+    .phone {
         margin-top:26px;
     }
 
     .twitter {
-        margin-top: 18px;
+        margin-top: 26px;
+
+        a {
+            color: inherit;
+            text-decoration:none;
+        }
     }
 `

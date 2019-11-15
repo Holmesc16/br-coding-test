@@ -15,7 +15,6 @@ const Home = props => {
     restaurant: {},
     showBackButton: false
   })
-  console.log('state', state)
 
   let col1 = []
   let col2 = []
@@ -76,7 +75,6 @@ const Home = props => {
                 </div>
               </div>
             </div>
-            )
           </StyledWrapper>
           <Detail show={state.showDetailsView} restaurant={state.restaurant}/>
           </div>
@@ -92,7 +90,7 @@ const Home = props => {
             <div>
             {restaurants !== null ? (
               <div>
-                <StyledWrapper style={{'width' : state.showDetailsView === true ? '0px' : 'inherit'}}>
+                <StyledWrapper style={{'width' : state.showDetailsView === true ? '0px' : 'inherit', 'height' : state.showDetailsView === true ? '250px' : 'inherit'}}>
                   <div className="row">
                     <div className="column">
                       <div className="single-column">
@@ -136,7 +134,7 @@ const Home = props => {
            })}
            />
         {setLayout()}
-          <Footer show={!state.showBackButton}/>
+          <Footer show={state.showBackButton} />
       </div>
   )
 };

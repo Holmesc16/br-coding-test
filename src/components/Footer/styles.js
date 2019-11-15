@@ -8,9 +8,9 @@ export const StyledFooter = styled.footer`
     background: ${footerBackgroundColor};
     position: fixed;
     bottom: 0;
-    width:100%;
+    // width:100%;
     z-index: 9999;
-    display: ${props => props.size ? 'contents' : 'hidden'}
+    width: ${props => props.size ? '100%' : '0px'}
         }
 `;
 export const StyledIconContainer = styled.div`

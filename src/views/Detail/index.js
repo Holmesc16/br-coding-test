@@ -2,22 +2,22 @@ import React from 'react'
 import Map from '../../components/Map'
 import { StyledWrapper, StyledLabel, StyledDetailSection } from './styles'
 
-const singleColumnLayout = props => {
+const largeLayout = props => {
     return (
-        <StyledWrapper show={props.show === true ? 'contents' : 'none'}>
+        <StyledWrapper show={props.show === true ? 'initial' : 'none'}>
             <div className="row">
                 <div className="column">
                     <div className="single-column">
-                    <StyledLabel>
-                        <h1>{props.restaurant.name}</h1>
-                        <p>{props.restaurant.category}</p>
+                    <StyledLabel show={props.show === true ? 'initial' : 'none'} top='80px' width='50%' height='120px'>
+                        <div>
+                            <p fontSize='24px' fontWeight='bold'>{props.restaurant.name}</p>
+                            <p fontSize='20px' fontWeight='normal'>{props.restaurant.category}</p>
+                        </div>
                     </StyledLabel>
-                    <StyledDetailSection>
+                    <StyledDetailSection show={props.show === true ? 'initial' : 'none'} top='200px' width='50%'>
                         <div className="restaurant-info address">
-                            <h3>
                             {props.restaurant.location ? props.restaurant.location.address : ''}<br/>
                             {props.restaurant.location ? props.restaurant.location.city : ''}, {props.restaurant.location ? props.restaurant.location.state : ''}
-                            </h3>
                         </div>
                         <div className="restaurant-info phone">{props.restaurant.contact ? props.restaurant.contact.formattedPhone : ''}</div>
                         <div className="restaurant-info twitter"><a href="http://www.google.com">{props.restaurant.contact ? props.restaurant.contact.twitter !== undefined ? `@${props.restaurant.contact.twitter}` : '' : ''}</a></div>
@@ -30,10 +30,31 @@ const singleColumnLayout = props => {
     );
 }
 
+const smallLayout = props => {
+    return (
+        <StyledWrapper show={props.show === true ? 'initial' : 'none'}>
+            <Map lat={props.restaurant.location ? props.restaurant.location.lat : 32.95} lng={props.restaurant.location ? props.restaurant.location.lng : -96.82}/>
+            <StyledLabel show={props.show === true ? 'initial' : 'none'} top='324px' width='100%' height='68px'>
+                        <p fontSize='16px' fontWeight='bold'>{props.restaurant.name}</p>
+                        <p fontSize='12px' fontWeight='normal'>{props.restaurant.category}</p>
+                    </StyledLabel>
+                    <StyledDetailSection show={props.show === true ? 'initial' : 'none'} top='376px' width='100%'>
+                        <div className="restaurant-info address">
+                            {props.restaurant.location ? props.restaurant.location.address : ''}<br/>
+                            {props.restaurant.location ? props.restaurant.location.city : ''}, {props.restaurant.location ? props.restaurant.location.state : ''}
+                        </div>
+                        <div className="restaurant-info phone">{props.restaurant.contact ? props.restaurant.contact.formattedPhone : ''}</div>
+                        <div className="restaurant-info twitter"><a href="http://www.google.com">{props.restaurant.contact ? props.restaurant.contact.twitter !== undefined ? `@${props.restaurant.contact.twitter}` : '' : ''}</a></div>
+                    </StyledDetailSection>
+        </StyledWrapper>
+        )
+}
+
 const Detail = props => {
         return (
             <div>
-                {singleColumnLayout(props)}
+                {window.innerWidth > 767 ?
+                 largeLayout(props) : smallLayout(props)}
             </div>
         )
 }

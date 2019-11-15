@@ -11,12 +11,12 @@ const Footer = props => {
     <StyledFooter size={props.show}>
       <StyledIconContainer>
         <StyledFooterSection>
-          <StyledFooterIcon src="assets\cuts\tab_lunch@2x.png" />
-          <StyledFooterLabel>lunch</StyledFooterLabel>
+          <StyledFooterIcon src="assets\cuts\tab_lunch@2x.png" style={{'display': props.show === false ? 'none' : 'inherit'}}/>
+          <StyledFooterLabel style={{'display': props.show === false ? 'none' : 'inherit'}}>lunch</StyledFooterLabel>
         </StyledFooterSection>
         <StyledFooterSection>
-          <StyledFooterIcon src="assets\cuts\tab_internets@2x.png" />
-          <StyledFooterLabel>internets</StyledFooterLabel>
+          <StyledFooterIcon src="assets\cuts\tab_internets@2x.png" style={{'display': props.show === false ? 'none' : 'inherit'}}/>
+          <StyledFooterLabel style={{'display': props.show === false ? 'none' : 'inherit'}}>internets</StyledFooterLabel>
         </StyledFooterSection>
       </StyledIconContainer>
     </StyledFooter>

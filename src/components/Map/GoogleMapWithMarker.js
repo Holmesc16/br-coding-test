@@ -10,13 +10,13 @@ const styles = require('./GoogleMapStyles.json')
 
 const scopedDefaultCenter = {
   lat: 32.99,
-  lng: -96.83 //pappadeaux
+  lng: -96.83
 }
 // Google Map component
 const GoogleMapComponentWithMarker = withScriptjs(
   withGoogleMap(props => (
     <GoogleMap
-      defaultZoom={14}
+      defaultZoom={12}
       defaultCenter={
         props.lat && props.lng ?  {lat: props.lat, lng: props.lng } : scopedDefaultCenter
         }
